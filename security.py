@@ -46,7 +46,7 @@ num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 cnt = 0
 # dim m,n | n = width * height = 360 * 640
 matrix = np.zeros((1,230400))
-start = time.clock()
+start = time.time()
 while (cap.isOpened()) and cnt <100:
     try:
         ret, frame = cap.read()
@@ -61,7 +61,7 @@ while (cap.isOpened()) and cnt <100:
         #cv2.waitKey(1)
     except:
         break
-finish = time.clock()
+finish = time.time()
 #print(finish - start)
 #print(matrix.T.shape)
 #print(matrix.T)
