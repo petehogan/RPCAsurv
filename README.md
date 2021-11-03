@@ -1,5 +1,14 @@
 # RPCAsurv
 Robust PCA for use in surveillance footage
+### Contains: 
+  - security.py
+    - contains call to rpca via svt and creates data matrices from video   
+  - securitypcp.py
+    - same as security except solves nuclear norm min via PCP and not svt per alternating optimization   
+  - pcp.py
+    - algorithm for pricipal component pursuit from https://github.com/dfm/pcp 
+  - playsparse.py
+    - take result of rpca, either m, l or s (from m = l + s) and output to video in WD 
 ### Dependencies:
   - Python version >3.X
   - OpenCv
