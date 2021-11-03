@@ -25,13 +25,13 @@ def rpca(X):
     count = 0
     err = np.inf
     while (err > thresh) and (count < 10):
-        start = time.time()
+        start = time.clock()
         L = svt(X - S + (1/mu)*Y, 1/mu)
         S = shrink(X - L + (1/mu)*Y, lam/mu)
         Y = Y + mu*(X - L - S)
         count += 1
         err = np.linalg.norm(X-L-S)
-        finish = time.time()
+        finish = time.clock()
 
         print(f'iter num: {count}')
         print(f'cpu clock time: {finish - start}')
@@ -46,7 +46,7 @@ num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 cnt = 0
 # dim m,n | n = width * height = 360 * 640
 matrix = np.zeros((1,230400))
-start = time.time()
+start = time.clock()
 while (cap.isOpened()) and cnt <100:
     try:
         ret, frame = cap.read()
@@ -61,7 +61,7 @@ while (cap.isOpened()) and cnt <100:
         #cv2.waitKey(1)
     except:
         break
-finish = time.time()
+finish = time.clock()
 #print(finish - start)
 #print(matrix.T.shape)
 #print(matrix.T)
