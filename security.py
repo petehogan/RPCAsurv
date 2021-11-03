@@ -3,7 +3,8 @@ import numpy as np
 import time
 from matplotlib import pyplot as plt
 
-#
+#This file uses SVT (singular value thresholding) on the nuclear norm min as a convex approximation to the low rank estimation problem, which is np hard. NOT what
+# Candes proposes, that is in the pcp file
 def shrink(X,tau):
     return np.sign(X) * np.maximum(np.abs(X) - tau, 0)
 
